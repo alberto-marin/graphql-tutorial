@@ -8,7 +8,7 @@ const app = express();
 
 // connect to database
 mongoose.connect(
-  `mongodb+srv://alberto:${process.env.PASSWORD}@cluster0-kwbw2.mongodb.net/test?retryWrites=true&w=majority`
+  `mongodb+srv://alberto:${process.env.PASSWORD}@cluster0-kwbw2.mongodb.net/gql-ninja?retryWrites=true&w=majority`
 );
 mongoose.connection.once('open', () => {
   console.log('connected to database');

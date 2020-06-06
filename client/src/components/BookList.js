@@ -5,7 +5,7 @@ import { getBooksQuery } from '../queries/queries';
 
 function BookList(props) {
   var data = props.data;
-  console.log(props);
+  //console.log(props);
 
   if (data.loading || data === undefined) {
     return (

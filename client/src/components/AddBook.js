@@ -27,8 +27,8 @@ function AddBook(props) {
   const handleForm = e => {
     e.preventDefault();
     let formData = { name, genre, authorId };
-
-    console.log(formData);
+    //console.log(formData);
+    props.addBookMutation();
   };
 
   return (

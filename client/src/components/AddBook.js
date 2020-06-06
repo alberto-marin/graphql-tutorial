@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
 import compose from 'lodash.flowright';
 
-import { getAuthorsQuery, addBookMutation } from '../queries/queries';
+import {
+  getAuthorsQuery,
+  addBookMutation,
+  getBooksQuery
+} from '../queries/queries';
 
 function AddBook(props) {
   const [name, setName] = useState('');
@@ -29,7 +33,8 @@ function AddBook(props) {
     let formData = { name, genre, authorId };
     //console.log(formData);
     props.addBookMutation({
-      variables: formData
+      variables: formData,
+      refetchQueries: [{ query: getBooksQuery }] // reload the BookList
     });
   };
 

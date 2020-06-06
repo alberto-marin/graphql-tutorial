@@ -5,7 +5,9 @@ import { getBooksQuery } from '../queries/queries';
 
 function BookList(props) {
   var data = props.data;
-  if (data.loading) {
+  console.log(props);
+
+  if (data.loading || data === undefined) {
     return (
       <div className='loading'>
         <p>Loading books...</p>

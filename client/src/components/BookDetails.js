@@ -8,19 +8,29 @@ function BookDetails(props) {
   const { book } = props.data;
   function displayBookDetails() {
     if (!book) {
-      return <p>No book selected</p>;
+      return (
+        <div className='alert alert-info' role='alert'>
+          Select a book from the list to see more details
+        </div>
+      );
     } else {
       return (
-        <div>
-          <h2>{book.name}</h2>
-          <p>{book.genre}</p>
-          <p>{book.author.name}</p>
-          <h3>All books by this author:</h3>
-          <ul className='other-books'>
-            {book.author.books.map(item => {
-              return <li key={item.id}>{item.name}</li>;
-            })}
-          </ul>
+        <div className='card'>
+          <div className='card-header'>Book</div>
+          <div className='card-body'>
+            <h5 className='card-title'>{book.name}</h5>
+            <p className='card-text'>Genre: {book.genre}</p>
+            <p className='card-text'>Books by {book.author.name}:</p>
+            <ul className='list-group list-group-flush'>
+              {book.author.books.map(item => {
+                return (
+                  <li key={item.id} className='list-group-item'>
+                    {item.name}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       );
     }

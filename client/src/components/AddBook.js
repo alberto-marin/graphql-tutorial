@@ -39,34 +39,42 @@ function AddBook(props) {
   };
 
   return (
-    <form id='add-book' onSubmit={handleForm}>
-      <div className='field'>
-        <label htmlFor=''>Book name:</label>
-        <input
-          type='text'
-          name=''
-          id=''
-          onChange={e => setName(e.target.value)}
-        />
+    <div className='card'>
+      <div className='card-body'>
+        <form id='add-book' onSubmit={handleForm}>
+          <div className='form-group'>
+            <label htmlFor='book-name'>Book name:</label>
+            <input
+              className='form-control'
+              type='text'
+              id='book-name'
+              onChange={e => setName(e.target.value)}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='book-genre'>Genre:</label>
+            <input
+              className='form-control'
+              type='text'
+              id='book-genre'
+              onChange={e => setGenre(e.target.value)}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='author'>Author:</label>
+            <select
+              id='author'
+              className='form-control'
+              onChange={e => setAuthorId(e.target.value)}
+            >
+              <option value=''>Select author</option>
+              {displayAuthors()}
+            </select>
+          </div>
+          <button className='btn btn-primary'>Save book</button>
+        </form>
       </div>
-      <div className='field'>
-        <label htmlFor=''>Genre:</label>
-        <input
-          type='text'
-          name=''
-          id=''
-          onChange={e => setGenre(e.target.value)}
-        />
-      </div>
-      <div className='field'>
-        <label htmlFor=''>Author:</label>
-        <select name='' id='' onChange={e => setAuthorId(e.target.value)}>
-          <option value=''>Select author</option>
-          {displayAuthors()}
-        </select>
-      </div>
-      <button>+</button>
-    </form>
+    </div>
   );
 }
 
